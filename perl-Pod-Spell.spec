@@ -110,9 +110,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/Pod/Spell.pm
-/usr/lib/perl5/vendor_perl/5.28.1/Pod/Wordlist.pm
-/usr/lib/perl5/vendor_perl/5.28.1/auto/share/dist/Pod-Spell/wordlist
+/usr/lib/perl5/vendor_perl/5.28.2/Pod/Spell.pm
+/usr/lib/perl5/vendor_perl/5.28.2/Pod/Wordlist.pm
+/usr/lib/perl5/vendor_perl/5.28.2/auto/share/dist/Pod-Spell/wordlist
 
 %files bin
 %defattr(-,root,root,-)
