@@ -4,11 +4,11 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.20
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpod-spell-perl/libpod-spell-perl_1.20-1.debian.tar.xz
-Summary  : 'a formatter for spellchecking Pod'
+Summary  : a formatter for spellchecking Pod
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Pod-Spell-bin = %{version}-%{release}
@@ -34,7 +34,6 @@ SYNOPSIS
 Summary: bin components for the perl-Pod-Spell package.
 Group: Binaries
 Requires: perl-Pod-Spell-license = %{version}-%{release}
-Requires: perl-Pod-Spell-man = %{version}-%{release}
 
 %description bin
 bin components for the perl-Pod-Spell package.
@@ -45,6 +44,7 @@ Summary: dev components for the perl-Pod-Spell package.
 Group: Development
 Requires: perl-Pod-Spell-bin = %{version}-%{release}
 Provides: perl-Pod-Spell-devel = %{version}-%{release}
+Requires: perl-Pod-Spell = %{version}-%{release}
 
 %description dev
 dev components for the perl-Pod-Spell package.
@@ -71,7 +71,7 @@ man components for the perl-Pod-Spell package.
 cd ..
 %setup -q -T -D -n Pod-Spell-1.20 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Pod-Spell-1.20/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Pod-Spell-1.20/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
