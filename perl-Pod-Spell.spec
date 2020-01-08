@@ -4,16 +4,17 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.20
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpod-spell-perl/libpod-spell-perl_1.20-1.debian.tar.xz
-Summary  : a formatter for spellchecking Pod
+Summary  : 'a formatter for spellchecking Pod'
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Pod-Spell-bin = %{version}-%{release}
 Requires: perl-Pod-Spell-license = %{version}-%{release}
 Requires: perl-Pod-Spell-man = %{version}-%{release}
+Requires: perl-Pod-Spell-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Class::Inspector)
 BuildRequires : perl(Class::Tiny)
@@ -66,18 +67,28 @@ Group: Default
 man components for the perl-Pod-Spell package.
 
 
+%package perl
+Summary: perl components for the perl-Pod-Spell package.
+Group: Default
+Requires: perl-Pod-Spell = %{version}-%{release}
+
+%description perl
+perl components for the perl-Pod-Spell package.
+
+
 %prep
 %setup -q -n Pod-Spell-1.20
-cd ..
-%setup -q -T -D -n Pod-Spell-1.20 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libpod-spell-perl_1.20-1.debian.tar.xz
+cd %{_builddir}/Pod-Spell-1.20
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Pod-Spell-1.20/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Pod-Spell-1.20/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -87,7 +98,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -96,8 +107,8 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Pod-Spell
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/deblicense_copyright
+cp %{_builddir}/Pod-Spell-1.20/LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/b119b109e9b15f53f24ba3d89bbbc2ec7dd8c1c7
+cp %{_builddir}/Pod-Spell-1.20/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/a0df58490c0905c7174d6dd7e71a21cfab6d3947
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -110,9 +121,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/Spell.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/Wordlist.pm
-/usr/lib/perl5/vendor_perl/5.28.2/auto/share/dist/Pod-Spell/wordlist
 
 %files bin
 %defattr(-,root,root,-)
@@ -125,9 +133,15 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Pod-Spell/LICENSE
-/usr/share/package-licenses/perl-Pod-Spell/deblicense_copyright
+/usr/share/package-licenses/perl-Pod-Spell/a0df58490c0905c7174d6dd7e71a21cfab6d3947
+/usr/share/package-licenses/perl-Pod-Spell/b119b109e9b15f53f24ba3d89bbbc2ec7dd8c1c7
 
 %files man
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/podspell.1
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/Spell.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/Wordlist.pm
+/usr/lib/perl5/vendor_perl/5.30.1/auto/share/dist/Pod-Spell/wordlist
