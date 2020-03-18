@@ -4,7 +4,7 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.20
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpod-spell-perl/libpod-spell-perl_1.20-1.debian.tar.xz
@@ -108,7 +108,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Pod-Spell
 cp %{_builddir}/Pod-Spell-1.20/LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/b119b109e9b15f53f24ba3d89bbbc2ec7dd8c1c7
-cp %{_builddir}/Pod-Spell-1.20/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/a0df58490c0905c7174d6dd7e71a21cfab6d3947
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Pod-Spell/a0df58490c0905c7174d6dd7e71a21cfab6d3947
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -142,6 +142,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Pod/Spell.pm
-/usr/lib/perl5/vendor_perl/5.30.1/Pod/Wordlist.pm
-/usr/lib/perl5/vendor_perl/5.30.1/auto/share/dist/Pod-Spell/wordlist
+/usr/lib/perl5/vendor_perl/5.30.2/Pod/Spell.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Pod/Wordlist.pm
+/usr/lib/perl5/vendor_perl/5.30.2/auto/share/dist/Pod-Spell/wordlist
