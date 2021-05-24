@@ -4,7 +4,7 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.20
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DO/DOLMEN/Pod-Spell-1.20.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpod-spell-perl/libpod-spell-perl_1.20-1.debian.tar.xz
@@ -144,6 +144,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/Pod/Spell.pm
-/usr/lib/perl5/vendor_perl/5.32.1/Pod/Wordlist.pm
-/usr/lib/perl5/vendor_perl/5.32.1/auto/share/dist/Pod-Spell/wordlist
+/usr/lib/perl5/vendor_perl/5.34.0/Pod/Spell.pm
+/usr/lib/perl5/vendor_perl/5.34.0/Pod/Wordlist.pm
+/usr/lib/perl5/vendor_perl/5.34.0/auto/share/dist/Pod-Spell/wordlist
