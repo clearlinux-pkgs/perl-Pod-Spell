@@ -1,8 +1,5 @@
-1.20
-perl(Class::Inspector)
+1.23
 perl(Class::Tiny)
 perl(File::ShareDir)
 perl(File::ShareDir::Install)
 perl(Lingua::EN::Inflect)
-perl(Path::Tiny)
-perl(Test::Deep)
