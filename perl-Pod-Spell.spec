@@ -4,7 +4,7 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.26
-Release  : 26
+Release  : 27
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Pod-Spell-1.26.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Pod-Spell-1.26.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpod-spell-perl/libpod-spell-perl_1.20-1.debian.tar.xz
