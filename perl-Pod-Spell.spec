@@ -7,7 +7,7 @@
 #
 Name     : perl-Pod-Spell
 Version  : 1.27
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Pod-Spell-1.27.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/H/HA/HAARG/Pod-Spell-1.27.tar.gz
 Summary  : 'a formatter for spellchecking Pod'
